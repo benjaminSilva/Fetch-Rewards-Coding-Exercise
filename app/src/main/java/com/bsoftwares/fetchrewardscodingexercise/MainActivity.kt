@@ -3,6 +3,8 @@ package com.bsoftwares.fetchrewardscodingexercise
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bsoftwares.fetchrewardscodingexercise.adapter.FetchAdapter
 import com.bsoftwares.fetchrewardscodingexercise.databinding.ActivityMainBinding
 import com.bsoftwares.fetchrewardscodingexercise.viewModel.AppViewModel
@@ -26,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         val adapter = FetchAdapter()
 
         binding.rv.adapter = adapter
+
+        binding.rv.layoutManager = GridLayoutManager(this,4,RecyclerView.VERTICAL,false)
 
         viewModel.data.observe(this,{
             adapter.swapData(it)
