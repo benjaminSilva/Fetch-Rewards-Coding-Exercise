@@ -1,0 +1,2 @@
+rootProject.name = "Fetch Rewards Coding Exercise"
+include ':app'
