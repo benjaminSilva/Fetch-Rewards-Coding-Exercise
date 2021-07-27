@@ -1,4 +1,4 @@
-package com.bsoftwares.fetchrewardscodingexercise
+package com.bsoftwares.fetchrewardscodingexercise.di
 
 import com.bsoftwares.fetchrewardscodingexercise.network.FetchApi
 import com.bsoftwares.fetchrewardscodingexercise.repo.Repository

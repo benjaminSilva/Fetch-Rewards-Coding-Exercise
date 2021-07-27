@@ -20,7 +20,7 @@ import javax.inject.Inject
 class AppViewModel @Inject constructor(private val repository: RepositoryInterface) : ViewModel() {
 
     private val _data = MutableLiveData<List<Data>>()
-    val data : LiveData<List<Data>>
+    val data: LiveData<List<Data>>
         get() = _data
 
     fun getData() {
@@ -31,20 +31,8 @@ class AppViewModel @Inject constructor(private val repository: RepositoryInterfa
         }
     }
 
-    fun organizeList(list: List<Data>): List<Data> {
-
-        val newList = mutableListOf<Data>()
-
-        for (idList in list.distinctBy { it.listId }.sortedBy { it.listId }){
-            newList.addAll(list.filter {data ->
-                data.listId == idList.listId
-            }.filter {
-                !it.name.isNullOrEmpty()
-            }.sortedBy {
-                it.id
-            })
-        }
-        return newList
+    private fun organizeList(list: List<Data>): List<Data> {
+        return list.sortedWith(compareBy({it.listId},{it.id}))
     }
 
 }
